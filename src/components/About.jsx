@@ -1,27 +1,19 @@
 import { FaCheckCircle } from 'react-icons/fa'
+import { useLanguage } from '../context/LanguageContext'
 import Reveal from './Reveal'
 
-const POINTS = [
-  'Barberos con oficio y buen ojo para el detalle',
-  'Ambiente auténtico de barbería de toda la vida',
-  'Atención cercana, sin prisas',
-  'En pleno centro de Barcelona, fácil de encontrar',
-]
-
 export default function About() {
+  const { t } = useLanguage()
+
   return (
     <section id="nosotros" className="about">
       <div className="container about__grid">
         <Reveal className="about__copy">
-          <p className="eyebrow">Nosotros</p>
-          <h2 className="section-title">La barbería de tu barrio</h2>
-          <p className="section-lead">
-            En Vinz Barber Shop cuidamos cada corte como si fuera el nuestro. Tradición de
-            barbería con un acabado moderno, en un espacio pensado para que salgas con las
-            ideas claras y el look impecable.
-          </p>
+          <p className="eyebrow">{t.about.eyebrow}</p>
+          <h2 className="section-title">{t.about.title}</h2>
+          <p className="section-lead">{t.about.lead}</p>
           <ul className="about__list">
-            {POINTS.map((point) => (
+            {t.about.points.map((point) => (
               <li key={point}>
                 <FaCheckCircle color="#c8102e" />
                 <span>{point}</span>

@@ -1,7 +1,10 @@
 import { FaWhatsapp, FaInstagram, FaMapMarkerAlt, FaClock } from 'react-icons/fa'
 import { business, whatsappLink } from '../data/businessInfo'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section id="top" className="hero">
       <div className="hero__pole" aria-hidden="true">
@@ -11,26 +14,23 @@ export default function Hero() {
       </div>
 
       <div className="container hero__inner">
-        <p className="eyebrow eyebrow--light">Barbería en Barcelona</p>
+        <p className="eyebrow eyebrow--light">{t.hero.eyebrow}</p>
         <h1 className="hero__title">
-          Estilo clásico,
+          {t.hero.titleLine1}
           <br />
-          filo moderno.
+          {t.hero.titleLine2}
         </h1>
-        <p className="hero__subtitle">
-          Cortes de precisión, arreglo de barba y afeitado clásico en pleno centro de
-          Barcelona. Reserva tu cita en segundos por WhatsApp.
-        </p>
+        <p className="hero__subtitle">{t.hero.subtitle}</p>
 
         <div className="hero__ctas">
           <a
-            href={whatsappLink('Hola! Me gustaría reservar una cita en Vinz Barber Shop.')}
+            href={whatsappLink(t.hero.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-whatsapp"
           >
             <FaWhatsapp size={20} />
-            Reserva por WhatsApp
+            {t.hero.ctaWhatsapp}
           </a>
           <a
             href={business.instagramUrl}
@@ -48,7 +48,7 @@ export default function Hero() {
             <FaMapMarkerAlt /> {business.address.line1}, {business.address.line2}
           </span>
           <span>
-            <FaClock /> Lun–Sáb 10:00–21:00 · Dom 11:00–20:00
+            <FaClock /> {t.hero.metaHours}
           </span>
         </div>
       </div>

@@ -15,10 +15,8 @@ export const business = {
     line2: '08001 Barcelona',
     mapsQuery: 'Calle de la Lleialtat 6, 08001 Barcelona',
   },
-  hours: [
-    { days: 'Lunes a Sábado', time: '10:00 – 21:00' },
-    { days: 'Domingo', time: '11:00 – 20:00' },
-  ],
+  // Opening hours are language-specific (12h vs 24h format) — edit them in
+  // src/data/translations.js under `hours.days` for each language instead.
 }
 
 export const whatsappLink = (message) => {

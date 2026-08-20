@@ -1,4 +1,5 @@
 import './App.css'
+import { LanguageProvider } from './context/LanguageContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -10,7 +11,7 @@ import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   return (
-    <>
+    <LanguageProvider defaultLang="es">
       <Navbar />
       <main>
         <Hero />
@@ -21,7 +22,7 @@ function App() {
       </main>
       <Footer />
       <WhatsAppButton />
-    </>
+    </LanguageProvider>
   )
 }
 

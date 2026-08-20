@@ -1,56 +1,28 @@
 import { FaCut, FaUserTie, FaChild, FaPaintBrush, FaWhatsapp } from 'react-icons/fa'
 import { GiRazor, GiMustache } from 'react-icons/gi'
 import { whatsappLink } from '../data/businessInfo'
+import { useLanguage } from '../context/LanguageContext'
 import Reveal from './Reveal'
 
-const SERVICES = [
-  {
-    icon: FaCut,
-    title: 'Corte de cabello',
-    desc: 'Clásico, degradado o a tu estilo, con acabado impecable.',
-  },
-  {
-    icon: FaUserTie,
-    title: 'Corte + Barba',
-    desc: 'El combo completo para salir con el look perfecto.',
-  },
-  {
-    icon: GiRazor,
-    title: 'Afeitado clásico',
-    desc: 'Navaja, toalla caliente y ritual de barbería tradicional.',
-  },
-  {
-    icon: GiMustache,
-    title: 'Diseño de barba',
-    desc: 'Perfilado y arreglo de barba al detalle milimétrico.',
-  },
-  {
-    icon: FaChild,
-    title: 'Corte niño',
-    desc: 'Para los más pequeños de la casa, con toda la paciencia.',
-  },
-  {
-    icon: FaPaintBrush,
-    title: 'Cejas y detalles',
-    desc: 'Perfilado de cejas y afeitado de contorno para un acabado pulido.',
-  },
-]
+// Icons are matched to translated service items by index — see
+// src/data/translations.js `services.items` for the text in each language.
+const SERVICE_ICONS = [FaCut, FaUserTie, GiRazor, GiMustache, FaChild, FaPaintBrush]
 
 export default function Services() {
+  const { t } = useLanguage()
+
   return (
     <section id="servicios" className="services">
       <div className="container">
         <Reveal>
-          <p className="eyebrow">Qué hacemos</p>
-          <h2 className="section-title">Nuestros servicios</h2>
-          <p className="section-lead">
-            Escribe por WhatsApp y te confirmamos disponibilidad y precio al momento.
-          </p>
+          <p className="eyebrow">{t.services.eyebrow}</p>
+          <h2 className="section-title">{t.services.title}</h2>
+          <p className="section-lead">{t.services.lead}</p>
         </Reveal>
 
         <div className="services__grid">
-          {SERVICES.map((service, i) => {
-            const Icon = service.icon
+          {t.services.items.map((service, i) => {
+            const Icon = SERVICE_ICONS[i]
             return (
               <Reveal key={service.title} delay={i * 60} className="service-card">
                 <div className="service-card__icon">
@@ -59,13 +31,13 @@ export default function Services() {
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
                 <a
-                  href={whatsappLink(`Hola! Quiero reservar: ${service.title}.`)}
+                  href={whatsappLink(t.services.bookingMessage(service.title))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="service-card__link"
                 >
                   <FaWhatsapp size={16} />
-                  Reservar
+                  {t.services.bookLabel}
                 </a>
               </Reveal>
             )

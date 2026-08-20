@@ -1,20 +1,22 @@
 import { FaMapMarkerAlt, FaWhatsapp, FaDirections } from 'react-icons/fa'
 import { business, whatsappLink } from '../data/businessInfo'
+import { useLanguage } from '../context/LanguageContext'
 import Reveal from './Reveal'
 
 export default function HoursLocation() {
+  const { t } = useLanguage()
   const mapsQuery = encodeURIComponent(business.address.mapsQuery)
 
   return (
     <section id="horario" className="hours">
       <div className="container hours__grid">
         <Reveal className="hours__info">
-          <p className="eyebrow">Horario y ubicación</p>
-          <h2 className="section-title">Te esperamos</h2>
+          <p className="eyebrow">{t.hours.eyebrow}</p>
+          <h2 className="section-title">{t.hours.title}</h2>
 
           <table className="hours__table">
             <tbody>
-              {business.hours.map((row) => (
+              {t.hours.days.map((row) => (
                 <tr key={row.days}>
                   <td>{row.days}</td>
                   <td>{row.time}</td>
@@ -34,13 +36,13 @@ export default function HoursLocation() {
 
           <div className="hours__ctas">
             <a
-              href={whatsappLink('Hola! Quiero reservar una cita en Vinz Barber Shop.')}
+              href={whatsappLink(t.hours.whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-whatsapp"
             >
               <FaWhatsapp size={18} />
-              Escríbenos
+              {t.hours.ctaWhatsapp}
             </a>
             <a
               href={`https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}`}
@@ -49,14 +51,14 @@ export default function HoursLocation() {
               className="btn btn-dark"
             >
               <FaDirections size={18} />
-              Cómo llegar
+              {t.hours.ctaDirections}
             </a>
           </div>
         </Reveal>
 
         <Reveal delay={100} className="hours__map">
           <iframe
-            title="Ubicación de Vinz Barber Shop"
+            title={t.hours.mapTitle}
             src={`https://maps.google.com/maps?q=${mapsQuery}&z=16&output=embed`}
             width="100%"
             height="100%"

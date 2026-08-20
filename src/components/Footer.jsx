@@ -1,7 +1,9 @@
 import { FaWhatsapp, FaInstagram, FaMapMarkerAlt } from 'react-icons/fa'
 import { business, whatsappLink, whatsappLinkSecondary } from '../data/businessInfo'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Footer() {
+  const { t } = useLanguage()
   const year = new Date().getFullYear()
 
   return (
@@ -13,7 +15,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__col">
-          <h4>Contacto</h4>
+          <h4>{t.footer.contact}</h4>
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
             <FaWhatsapp /> {business.whatsappDisplayPrimary}
           </a>
@@ -26,7 +28,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__col">
-          <h4>Dirección</h4>
+          <h4>{t.footer.address}</h4>
           <a
             href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
               business.address.mapsQuery
@@ -40,7 +42,9 @@ export default function Footer() {
       </div>
 
       <div className="container footer__bottom">
-        <span>© {year} {business.name}. Todos los derechos reservados.</span>
+        <span>
+          © {year} {business.name}. {t.footer.rights}
+        </span>
       </div>
     </footer>
   )

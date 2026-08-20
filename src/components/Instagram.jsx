@@ -1,23 +1,21 @@
 import { FaInstagram, FaCut, FaUserTie } from 'react-icons/fa'
 import { GiRazor, GiMustache, GiScissors, GiComb } from 'react-icons/gi'
 import { business } from '../data/businessInfo'
+import { useLanguage } from '../context/LanguageContext'
 import Reveal from './Reveal'
 
 const TILE_ICONS = [FaCut, GiRazor, FaUserTie, GiMustache, GiScissors, GiComb]
 
 export default function Instagram() {
+  const { t } = useLanguage()
+
   return (
     <section id="instagram" className="instagram">
       <div className="container instagram__inner">
         <Reveal className="instagram__copy">
-          <p className="eyebrow eyebrow--light">Redes sociales</p>
-          <h2 className="section-title section-title--light">
-            Síguenos en Instagram
-          </h2>
-          <p className="section-lead section-lead--light">
-            Cortes, transformaciones y el día a día de la barbería. Etiquétanos en tus
-            fotos y sé parte de la comunidad Vinz.
-          </p>
+          <p className="eyebrow eyebrow--light">{t.instagram.eyebrow}</p>
+          <h2 className="section-title section-title--light">{t.instagram.title}</h2>
+          <p className="section-lead section-lead--light">{t.instagram.lead}</p>
           <a
             href={business.instagramUrl}
             target="_blank"
@@ -25,7 +23,7 @@ export default function Instagram() {
             className="btn btn-outline"
           >
             <FaInstagram size={20} />
-            Seguir @{business.instagramHandle}
+            {t.instagram.cta} @{business.instagramHandle}
           </a>
         </Reveal>
 
