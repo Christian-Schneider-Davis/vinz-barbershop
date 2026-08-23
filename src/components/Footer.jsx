@@ -15,21 +15,6 @@ export default function Footer() {
         </div>
 
         <div className="footer__col">
-          <h4>{t.footer.contact}</h4>
-          <a
-            href={whatsappLink(t.footer.whatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-whatsapp footer__contact-btn"
-          >
-            <FaWhatsapp size={16} /> {t.footer.contactCta}
-          </a>
-          {/* <a href={business.instagramUrl} target="_blank" rel="noopener noreferrer">
-            <FaInstagram /> {business.instagramHandle}
-          </a> */}
-        </div>
-
-        <div className="footer__col">
           <h4>{t.footer.address}</h4>
           <a
             href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
