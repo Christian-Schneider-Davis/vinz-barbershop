@@ -1,5 +1,5 @@
 import { FaWhatsapp, FaInstagram, FaMapMarkerAlt } from 'react-icons/fa'
-import { business, whatsappLink, whatsappLinkSecondary } from '../data/businessInfo'
+import { business, whatsappLink } from '../data/businessInfo'
 import { useLanguage } from '../context/LanguageContext'
 
 export default function Footer() {
@@ -16,15 +16,17 @@ export default function Footer() {
 
         <div className="footer__col">
           <h4>{t.footer.contact}</h4>
-          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp /> {business.whatsappDisplayPrimary}
+          <a
+            href={whatsappLink(t.footer.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-whatsapp footer__contact-btn"
+          >
+            <FaWhatsapp size={16} /> {t.footer.contactCta}
           </a>
-          <a href={whatsappLinkSecondary()} target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp /> {business.whatsappDisplaySecondary}
-          </a>
-          <a href={business.instagramUrl} target="_blank" rel="noopener noreferrer">
-            <FaInstagram /> @{business.instagramHandle}
-          </a>
+          {/* <a href={business.instagramUrl} target="_blank" rel="noopener noreferrer">
+            <FaInstagram /> {business.instagramHandle}
+          </a> */}
         </div>
 
         <div className="footer__col">

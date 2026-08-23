@@ -642,6 +642,21 @@
   color: var(--white);
 }
 
+.footer__col a.footer__contact-btn {
+  display: inline-flex;
+  width: 100px;
+  height: 10px;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+
+.footer__col a.footer__contact-btn:hover {
+  color: var(--black);
+}
+
 .footer__bottom {
   padding-top: 22px;
   font-size: 13px;

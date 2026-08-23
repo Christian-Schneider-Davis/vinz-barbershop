@@ -39,7 +39,7 @@ export default function Hero() {
             className="btn btn-outline"
           >
             <FaInstagram size={20} />
-            @{business.instagramHandle}
+            {business.instagramHandle}
           </a>
         </div>
 

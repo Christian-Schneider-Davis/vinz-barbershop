@@ -51,10 +51,6 @@ export const translations = {
           title: 'Corte niño',
           desc: 'Para los más pequeños de la casa, con toda la paciencia.',
         },
-        {
-          title: 'Cejas y detalles',
-          desc: 'Perfilado de cejas y afeitado de contorno para un acabado pulido.',
-        },
       ],
       bookingMessage: (service) => `Hola! Quiero reservar: ${service}.`,
     },
@@ -148,10 +144,6 @@ export const translations = {
         {
           title: 'Kids\' haircut',
           desc: 'For the little ones of the house, with all the patience needed.',
-        },
-        {
-          title: 'Eyebrows & detailing',
-          desc: 'Eyebrow shaping and edge-up shaving for a polished finish.',
         },
       ],
       bookingMessage: (service) => `Hi! I'd like to book: ${service}.`,

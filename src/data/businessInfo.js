@@ -4,8 +4,8 @@
 export const business = {
   name: 'Vinz Barber Shop',
   tagline: 'Barbería clásica, estilo moderno',
-  instagramHandle: 'Vinzbarbershop_bcn',
-  instagramUrl: 'https://instagram.com/Vinzbarbershop_bcn',
+  instagramHandle: 'Follow Us',
+  instagramUrl: 'https://instagram.com/vinzbarbershop_bcn_afrobarber',
   whatsappPrimary: '34611336094',
   whatsappSecondary: '34631506846',
   whatsappDisplayPrimary: '+34 611 336 094',

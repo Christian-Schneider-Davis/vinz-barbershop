@@ -23,7 +23,7 @@ export default function Instagram() {
             className="btn btn-outline"
           >
             <FaInstagram size={20} />
-            {t.instagram.cta} @{business.instagramHandle}
+            {business.instagramHandle}
           </a>
         </Reveal>
 
